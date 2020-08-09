@@ -1,4 +1,15 @@
 const express = require('express');
+const httpStatus = require('http-status')
+const mongoose = require('mongoose')
+require('dotenv').config()
+
+
+
+mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_LOGIN}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_CLUSTER}/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`,
+  { useNewUrlParser: true,
+    useUnifiedTopology: true })
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch(() => console.log('/!\\ Connexion à MongoDB échouée !/!\\'));
 
 const app = express();
 
@@ -9,19 +20,29 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/coucou', (req, res, next) => {
-  const stuff = {message: 'coucou'}
-  res.status(200).json(stuff);
+/**
+ * @param req {{prenom: String}}
+ */
+app.get('/coucou/:prenom', (req, res, next) => {
+  const stuff = {message: `coucou ${req.params.prenom}`}
+  res.status(httpStatus.OK).json(stuff);
 
 });
 
 app.get('/api/stuff', (req, res, next) => {
-  res.status(200).json(stuff);
+  res.status(httpStatus.OK).json(stuff);
+});
+
+app.post('/api/stuff', (req, res, next) => {
+  console.log(req.body);
+  res.status(httpStatus.CREATED).json({
+    message: 'Objet créé !'
+  });
 });
 
 app.use(function(req, res, next){
   res.setHeader('Content-Type', 'text/plain');
-  res.status(404).send('Page introuvable !');
+  res.status(httpStatus.NOT_FOUND).send(`Page introuvable ! (${httpStatus.NOT_FOUND + ' ' + httpStatus[httpStatus.NOT_FOUND]}) `);
 });
 
 module.exports = app;
