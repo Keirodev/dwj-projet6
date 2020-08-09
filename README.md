@@ -9,8 +9,9 @@ Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous
 
 ## Désormais :
 ```bash
-npm start
+cd front && npm start
 ```
 
+[Gestion DB ici](https://cloud.mongodb.com/v2/5e7d4c48657df53f3e469e5b#security/network/whitelist)
 
 
