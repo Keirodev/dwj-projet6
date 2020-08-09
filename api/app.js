@@ -4,8 +4,9 @@ const express = require('express')
 const httpStatus = require('http-status')
 const mongoose = require('mongoose')
 
-const testRoutes = require('./routes/test')
-const sauceRoutes = require('./routes/sauce')
+const testRoutes = require('./src/routes/test')
+const sauceRoutes = require('./src/routes/sauce')
+const userRoutes = require('./src/routes/user')
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_LOGIN}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_CLUSTER}/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`,
   {
@@ -24,8 +25,9 @@ app.use((req, res, next) => {
   next()
 })
 
-app.use('/sauce', sauceRoutes)
 app.use('/test', testRoutes)
+app.use('/api/sauces', sauceRoutes)
+app.use('/api/auth', userRoutes)
 
 app.use(function (req, res, next) {
   res.setHeader('Content-Type', 'text/plain')
