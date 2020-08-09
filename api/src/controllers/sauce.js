@@ -1,13 +1,26 @@
 const httpStatus = require('http-status')
 
-exports.getRoot = (req, res, next) => {
-  res.status(httpStatus.OK).json({message: 'Okayyyyyyyyyyy'})
+exports.getAllSauces = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'getAllSauces'})
 }
 
-exports.postRoot = (req, res, next) => {
-  console.log(req.body)
-  res.status(httpStatus.CREATED).json({
-    message: 'Objet créé !'
-  })
+exports.getSauce = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'getAgetSaucellSauces'})
+}
+
+exports.addSauce = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'addSauce'})
+}
+
+exports.updateSauce = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'updateSauce'})
+}
+
+exports.deleteSauce = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'deleteSauce'})
+}
+
+exports.handleLike = (req, res, next) => {
+  res.status(httpStatus.OK).json({message: 'handleLike'})
 }
 
