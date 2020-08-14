@@ -4,6 +4,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const httpStatus = require('http-status')
+const path = require('path')
 
 const sauceRoutes = require('./src/routes/sauce')
 const userRoutes = require('./src/routes/user')
@@ -26,10 +27,11 @@ app.use((req, res, next) => {
 })
 
 app.use(bodyParser.json())
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.use('/api/sauces', sauceRoutes)
 app.use('/api/auth', userRoutes)
 
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.setHeader('Content-Type', 'text/plain')
   res.status(httpStatus.NOT_FOUND).send(`Page introuvable ! (${httpStatus.NOT_FOUND + ' ' + httpStatus[httpStatus.NOT_FOUND]}) `)
 })
