@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const httpStatus = require('http-status')
 
-const testRoutes = require('./src/routes/test')
 const sauceRoutes = require('./src/routes/sauce')
 const userRoutes = require('./src/routes/user')
 
@@ -27,7 +26,6 @@ app.use((req, res, next) => {
 })
 
 app.use(bodyParser.json())
-app.use('/test', testRoutes)
 app.use('/api/sauces', sauceRoutes)
 app.use('/api/auth', userRoutes)
 
