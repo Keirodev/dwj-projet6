@@ -12,7 +12,8 @@ const userRoutes = require('./src/routes/user')
 mongoose.connect(`mongodb+srv://${process.env.MONGO_DB_LOGIN}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_CLUSTER}/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch(() => console.log('/!\\ Connexion à MongoDB échouée !/!\\'))

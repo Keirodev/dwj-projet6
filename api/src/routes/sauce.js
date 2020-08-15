@@ -9,7 +9,7 @@ router.get('/', auth, sauceControllers.getAllSauces)
 router.post('/', auth, multer, sauceControllers.addSauce)
 
 router.get('/:id', auth, sauceControllers.getSauce)
-router.put('/:id', auth, sauceControllers.updateSauce)
+router.put('/:id', auth, multer, sauceControllers.updateSauce)
 router.delete('/:id', auth, sauceControllers.deleteSauce)
 
 router.post('/:id/like', auth, sauceControllers.handleLike)
