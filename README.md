@@ -16,4 +16,13 @@ cd ../api && npm start
 
 [Gestion de ma Mongo DB ici](https://cloud.mongodb.com/v2/5e7d4c48657df53f3e469e5b#security/network/whitelist)
 
+Prod
+-----------
+Build front with 
+```bash
+npm run build
+# OR the full native command :
+ng build --prod --base-href ./
+```
+
 
