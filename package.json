@@ -2,7 +2,7 @@
   "name": "dwj-projet6",
   "version": "1.0.0",
   "scripts": {
-    "heroku-prebuild": "cd front && npm install && npm run build && cd ../api && npm install",
+    "heroku-prebuild": "cd front && npm i && npm run start && cd ../api && npm i",
     "start": "cd api && npm run prod"
   },
   "engines": {
