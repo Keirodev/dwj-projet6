@@ -5,6 +5,10 @@
     "heroku-prebuild": "cd front && npm install && npm run build && cd ../api && npm install",
     "start": "cd api && npm run prod"
   },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Keirodev/dwj-projet6.git"
