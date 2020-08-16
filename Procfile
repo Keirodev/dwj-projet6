@@ -1,2 +1,2 @@
-web: cd front && npm start
-worker: node api/server.js
+web: cd front && npm run start
+worker: cd api && npm run prod

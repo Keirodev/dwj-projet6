@@ -7,8 +7,14 @@ Le projet a été généré avec [Angular CLI](https://github.com/angular/angula
 Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous sur `http://localhost:4200/`. L'application va se recharger automatiquement si vous modifiez un fichier source.
 
 
-## Désormais :
-Lancer Front & Back avec 
+## Lancer le projet en local :
+
+Easiest is using Heroku :
+```bash
+heroku local
+```
+
+À la main Lancer Front & Back avec 
 ```bash
 cd front && npm start &
 cd ../api && npm start
@@ -18,6 +24,12 @@ cd ../api && npm start
 
 Prod
 -----------
+
+
+Heroku !
+
+
+
 Build front with 
 ```bash
 npm run build
@@ -25,4 +37,10 @@ npm run build
 ng build --prod --base-href ./
 ```
 
+Run back with 
+```bash
+node api/server.js
+```
+
+## [Version online ici](https://dwj.alwaysdata.net/)
 
