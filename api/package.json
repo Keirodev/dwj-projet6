@@ -17,9 +17,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon server.js",
-    "prod": "NODE_ENV=production PORT=3000 node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon server.js",
+    "start": "NODE_ENV=production node server.js"
   },
   "author": "",
   "license": "ISC"
